@@ -36,6 +36,12 @@ public class StudentController {
         }
     }
 
+    @GetMapping("/dept/{department}")
+    public List<Student> getAllDepartments(@PathVariable String department){
+        List<Student> studentInDepartments = this.studentRepository.findByStudentDepartment(department);
+        return studentInDepartments;
+    }
+
     @PostMapping
     public String studentUpdate(@RequestBody Student student){
         // save acts as UPSERT
@@ -48,5 +54,7 @@ public class StudentController {
         this.studentRepository.deleteById(id);
         return "Deleted student with id =  " + id;
     }
+
+
 
 }

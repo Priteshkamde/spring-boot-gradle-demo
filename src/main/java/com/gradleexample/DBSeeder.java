@@ -36,7 +36,31 @@ public class DBSeeder implements CommandLineRunner {
                 LocalDate.of(2020, Month.AUGUST, 20)
                 );
 
-        List<Student> list = Arrays.asList(s1,s2);
+        Student s3 = new Student(
+                "Ross",
+                "history",
+                LocalDate.of(2020, Month.AUGUST, 20)
+        );
+
+        Student s4 = new Student(
+                "Monica",
+                "cooking",
+                LocalDate.of(2020, Month.AUGUST, 20)
+        );
+
+        Student s5 = new Student(
+                "Rachel",
+                "cooking",
+                LocalDate.of(2020, Month.AUGUST, 20)
+        );
+
+        Student s6 = new Student(
+                "Phoebe",
+                "arts",
+                LocalDate.of(2020, Month.AUGUST, 20)
+        );
+
+        List<Student> list = Arrays.asList(s1,s2,s3,s4,s5,s6);
         studentRepository.saveAll(list);
     }
 }
