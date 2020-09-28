@@ -2,9 +2,7 @@ package com.gradleexample.models;
 
 
 import javax.persistence.*;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "ALL_STUDENTS")
@@ -12,26 +10,29 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "c_id", unique = true, nullable = false)
+    @Column(name = "SID", unique = true, nullable = false)
     private int rollNumber;
 
-    //    @Column(name="FNAME")
+    @Column(name="SNAME")
     private String studentName;
 
-    //    @Column(name="LNAME")
+    @Column(name="DEPT")
     private String studentDepartment;
 
-    //    @Column(name="DATE")
-//    @JsonFormat(pattern="yyyy-MM-dd")
+    @Column(name="JOIN_DATE")
     private LocalDate date;
+
+    @Column(name = "MARKS")
+    private int marks;
 
     public Student() {
     }
 
-    public Student(String studentName, String studentDepartment, LocalDate date) {
+    public Student(String studentName, String studentDepartment, LocalDate date, int marks) {
         this.studentName = studentName;
         this.studentDepartment = studentDepartment;
         this.date = date;
+        this.marks = marks;
     }
 
     public int getRollNumber() {
@@ -64,6 +65,14 @@ public class Student {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int marks) {
+        this.marks = marks;
     }
 }
 
